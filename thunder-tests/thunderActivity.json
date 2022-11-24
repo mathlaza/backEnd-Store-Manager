@@ -153,12 +153,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-11-24T20:09:00.673Z",
-    "modified": "2022-11-24T20:21:40.967Z",
+    "modified": "2022-11-24T21:06:36.065Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"ProdutoX9\"\n}",
+      "raw": "{\n  \"name\": \"xabl\"\n}",
       "form": []
     },
     "tests": []

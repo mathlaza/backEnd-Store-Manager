@@ -14,7 +14,14 @@ const getProductsById = async (req, res) => {
   return res.status(status.NOT_FOUND).json({ message });
 };
 
+const registerProduct = async (req, res) => {
+  const newProduct = req.body.name;
+  const { message } = await productsService.registerProduct(newProduct);
+  return res.status(status.CREATED).json(message);
+};
+
 module.exports = {
   getProducts,
   getProductsById,
+  registerProduct,
 };

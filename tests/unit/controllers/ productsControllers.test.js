@@ -1,18 +1,21 @@
-const { expect } = require('chai');
-const sinon = require('sinon');
-const chai = require('chai');
-const sinonChai = require('sinon-chai');
+// The framework mocha enables asynchronous tests on node 
+const { expect } = require('chai'); // Enables assertions
+const sinon = require('sinon'); // Simulates functions
+const chai = require('chai'); // Enables more verbs to assertions
+const sinonChai = require('sinon-chai'); // Enables more verbs to assertions
 
+// To use more assertions, like "calledWith"
 chai.use(sinonChai);
 
-const productsMock = require('../models/mock/productsMock');
+const productsMock = require('../mock/productsMock');
 const productsService = require('../../../src/services/products.service');
 const productsController = require('../../../src/controllers/products.controller');
 const httpStatus = require('../../../src/utils/httpStatus');
 
-describe('Tests da camada Services dos produtos', function () {
+describe('Tests da camada Controllers dos produtos', function () {
   it('Verifica se todos os produtos são listados', async function () {
     const mock = { type: null, message: productsMock }
+    // "resolves" to functions, "returns" to objects
     sinon.stub(productsService, 'getProducts').resolves(mock);
     const req = {};
     const res = {};
@@ -21,7 +24,8 @@ describe('Tests da camada Services dos produtos', function () {
 
     await productsController.getProducts(req, res);
 
-    expect(res.status).to.have.been.calledWith(httpStatus.OK);
+    // Two forms of using "calledwith" to assert
+    expect(res.status.calledWith(httpStatus.OK)).to.be.equal(true);
     expect(res.json).to.have.been.calledWith(productsMock);
   });
 

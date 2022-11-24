@@ -5,6 +5,7 @@ const { checkNameExists, checkNameLength } = require('../middlewares/validatePro
 const routers = express.Router();
 
 // Routes (their order influences the behavior of the application)
+
 routers.get('/', productsController.getProducts);
 
 routers.post('/',

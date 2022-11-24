@@ -116,11 +116,11 @@
     "colId": "history",
     "containerId": "",
     "name": "https://localhost:3000/products",
-    "url": "https://localhost:3000/products",
+    "url": "http://localhost:3000/products",
     "method": "POST",
     "sortNum": 0,
     "created": "2022-11-24T20:06:42.106Z",
-    "modified": "2022-11-24T20:06:42.491Z",
+    "modified": "2022-11-24T21:36:40.043Z",
     "headers": [],
     "params": [],
     "body": {

@@ -13,4 +13,10 @@ const productsMock = [
   }
 ]
 
-module.exports = productsMock;
+const registerMock = 
+  {
+  "id": 999,
+  "name": "ProductX"
+  }
+
+module.exports = { productsMock, registerMock };

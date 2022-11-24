@@ -1,9 +1,10 @@
 const { expect } = require('chai');
 const sinon = require('sinon');
 
-const productsMock = require('../mock/productsMock');
+const { productsMock, registerMock } = require('../mock/productsMock');
 const productsModel = require('../../../src/models/products.model');
 const productsService = require('../../../src/services/products.service');
+const httpStatus = require('../../../src/utils/httpStatus');
 
 describe('Tests da camada Services dos produtos', function () {
   it('Verifica se todos os produtos são listados', async function () {
@@ -19,6 +20,20 @@ describe('Tests da camada Services dos produtos', function () {
     const result = await productsService.getProductsById(1);
     expect(result).to.deep.equal(response);
   })
+
+  it('Verifica erro se id buscado não existir', async function () {
+    sinon.stub(productsModel, 'getProductsById').resolves(null);
+    const response = { type: httpStatus.NOT_FOUND, message: 'Product not found' };
+    const result = await productsService.getProductsById(999);
+    expect(result).to.deep.equal(response);
+  });
+
+  it('Verifica se registra um produto', async function () {
+    sinon.stub(productsModel, 'registerProduct').resolves(registerMock);
+    const response = { type: null, message: registerMock }
+    const result = await productsService.registerProduct("ProductX");
+    expect(result).to.deep.equal(response);
+  });
 
   afterEach(sinon.restore);
 });

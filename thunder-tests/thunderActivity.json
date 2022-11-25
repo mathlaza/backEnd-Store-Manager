@@ -92,9 +92,14 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-11-23T16:59:39.931Z",
-    "modified": "2022-11-24T20:08:45.319Z",
+    "modified": "2022-11-25T03:01:47.639Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 5\n  }\n]",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -159,6 +164,25 @@
     "body": {
       "type": "json",
       "raw": "{\n  \"name\": \"xabl\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "1ceceebf-fde0-48ad-887c-411125b6d8d3",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/sales",
+    "url": "http://localhost:3000/sales",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-11-25T02:51:19.685Z",
+    "modified": "2022-11-25T04:08:38.538Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 2,\n    \"quantity\": 999\n  },\n  {\n    \"productId\": 3,\n    \"quantity\": 5\n  }\n]",
       "form": []
     },
     "tests": []

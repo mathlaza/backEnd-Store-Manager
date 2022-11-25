@@ -3,6 +3,7 @@ const httpStatus = require('../utils/httpStatus');
 // Checks if request has field "name"
 const checkNameExists = (req, res, next) => {
   const { name } = req.body;
+  
   if (!name) {
     return res.status(httpStatus.BAD_REQUEST)
     .json({ message: '"name" is required' });

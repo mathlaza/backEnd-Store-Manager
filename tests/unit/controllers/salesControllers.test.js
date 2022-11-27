@@ -70,5 +70,33 @@ describe('Tests da camada Controllers dos sales', () => {
     expect(res.json).to.have.been.calledWith({ message: 'Sale not found' });
   });
 
+  it('Verifica se deleta uma venda', async () => {
+    sinon.stub(salesService, 'deleteSale')
+      .resolves({ type: null, message: undefined });
+    const req = { params: { id: 2 } };
+    const res = {};
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    await salesController.deleteSale(req, res);
+
+    expect(res.status).calledWith(httpStatus.NO_CONTENT);
+    expect(res.json).calledWith();
+  });
+
+  it('Verifica erro se id da venda a deletar não existir', async () => {
+    sinon.stub(salesService, 'deleteSale')
+      .resolves({ type: httpStatus.NOT_FOUND, message: 'Sale not found' });
+    const req = { params: { id: 1000 } };
+    const res = {};
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns(res);
+
+    await salesController.deleteSale(req, res);
+
+    expect(res.status).calledWith(httpStatus.NOT_FOUND);
+    expect(res.json).calledWith({ message: 'Sale not found' });
+  });
+
   afterEach(sinon.restore);
 });

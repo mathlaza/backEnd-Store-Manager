@@ -31,5 +31,11 @@ describe('Tests da camada Model dos sales', () => {
     expect(result).to.deep.equal(getSaleByIdMock[0]);
   });
 
+  it('Verifica se deleta uma venda', async () => {
+    sinon.stub(connection, 'execute').resolves();
+    const result = await salesModel.deleteSale(2);
+    expect(result).to.deep.equal();
+  });
+
   afterEach(sinon.restore);
 });

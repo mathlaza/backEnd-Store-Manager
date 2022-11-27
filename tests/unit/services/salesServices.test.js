@@ -36,5 +36,19 @@ describe('Tests da camada Services dos sales', () => {
     expect(result).to.deep.equal(response);
   });
 
+  it('Verifica se deleta uma venda', async () => {
+    sinon.stub(salesModel, 'deleteSale').resolves();
+    const result = await salesService.deleteSale(2);
+    const response = { type: null, message: undefined };
+    expect(result).to.deep.equal(response);
+  });
+
+  it('Verifica erro se id da venda a deletar não existir', async () => {
+    sinon.stub(salesModel, 'getSaleById').resolves([]);
+    const result = await salesService.deleteSale(1000);
+    const response = { type: httpStatus.NOT_FOUND, message: 'Sale not found' };
+    expect(result).to.deep.equal(response);
+  });
+
   afterEach(sinon.restore);
 });

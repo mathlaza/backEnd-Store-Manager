@@ -27,7 +27,7 @@ describe('Tests da camada Model dos sales', () => {
 
   it('Verifica se uma venda buscada por id é listada', async () => {
     sinon.stub(connection, 'execute').resolves([getSaleByIdMock]);
-    const result = await salesModel.getSaleById(999);
+    const [result] = await salesModel.getSaleById(999);
     expect(result).to.deep.equal(getSaleByIdMock[0]);
   });
 

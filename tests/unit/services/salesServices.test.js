@@ -30,7 +30,7 @@ describe('Tests da camada Services dos sales', () => {
   });
 
   it('Verifica erro se id buscado não existir', async () => {
-    sinon.stub(salesModel, 'getSaleById').resolves(null);
+    sinon.stub(salesModel, 'getSaleById').resolves([]);
     const result = await salesService.getSaleById(999);
     const response = { type: httpStatus.NOT_FOUND, message: 'Sale not found' };
     expect(result).to.deep.equal(response);

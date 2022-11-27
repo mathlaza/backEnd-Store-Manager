@@ -16,8 +16,16 @@ const registerProduct = async (newProduct) => {
   return { type: null, message: product };
 };
 
+const updateProduct = async (id, name) => {
+  const { type } = await getProductsById(id);
+  await productsModel.updateProduct(id, name);
+  if (!type) return { type: null, message: '' };
+  return { type: httpStatus.NOT_FOUND, message: 'Product not found' };
+};
+
 module.exports = {
   getProducts,
   getProductsById,
   registerProduct,
+  updateProduct,
 };

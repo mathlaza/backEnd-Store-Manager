@@ -22,9 +22,14 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-11-23T16:44:51.222Z",
-    "modified": "2022-11-23T16:57:22.673Z",
+    "modified": "2022-11-27T06:36:21.466Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"martelus\"\n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -32,13 +37,18 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3000/products/2",
-    "url": "http://localhost:3000/products/2",
+    "url": "http://localhost:3000/products/1",
     "method": "GET",
     "sortNum": 0,
     "created": "2022-11-23T16:44:57.891Z",
-    "modified": "2022-11-23T16:57:20.239Z",
+    "modified": "2022-11-27T06:36:12.439Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"martelus\"\n}",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -92,12 +102,12 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-11-23T16:59:39.931Z",
-    "modified": "2022-11-25T03:01:47.639Z",
+    "modified": "2022-11-27T06:36:35.162Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 5\n  }\n]",
+      "raw": "{\n  \"name\": \"cueca\"\n}",
       "form": []
     },
     "tests": []
@@ -255,6 +265,82 @@
     "modified": "2022-11-27T02:48:52.473Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "34540a61-044b-429f-b092-f571db89bf4a",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/1",
+    "url": "http://localhost:3000/products/1",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2022-11-27T06:05:44.266Z",
+    "modified": "2022-11-27T06:33:53.970Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"martelus\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "484c602b-9cdf-4394-b812-f143647b836c",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/2",
+    "url": "http://localhost:3000/products/2",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2022-11-27T06:24:02.897Z",
+    "modified": "2022-11-27T06:33:45.562Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"picona\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "4392f5ab-95d1-4bae-8b38-3eb01fb857e4",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/2",
+    "url": "http://localhost:3000/products/2",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-27T06:36:17.995Z",
+    "modified": "2022-11-27T06:36:18.260Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"martelus\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "3ead5805-9c17-47bb-aa67-19938a23c528",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/3",
+    "url": "http://localhost:3000/products/3",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2022-11-27T06:36:29.969Z",
+    "modified": "2022-11-27T06:36:30.266Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"cueca\"\n}",
+      "form": []
+    },
     "tests": []
   }
 ]

@@ -15,4 +15,9 @@ routers.post('/',
 
 routers.get('/:id', productsController.getProductsById);
 
+routers.put('/:id',
+  checkNameExists,
+  checkNameLength,
+  productsController.updateProduct);
+
 module.exports = routers;

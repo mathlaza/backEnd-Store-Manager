@@ -28,9 +28,19 @@ const deleteSale = async (id) => {
   return { type: httpStatus.NOT_FOUND, message: 'Sale not found' };
 };
 
+const updateSale = async (saleId, saleProducts) => {
+  const sale = await salesModel.getSaleById(saleId);
+  if (!sale.length) return { type: httpStatus.NOT_FOUND, message: 'Sale not found' };
+  // Dont use forEach, because it can't work with asynchronicity, instead use Promise.all with map
+  await Promise.all(saleProducts.map((product) => salesModel.updateSale(saleId, product)));
+  const message = { saleId, itemsUpdated: saleProducts };
+  return { type: null, message };
+};
+
 module.exports = {
   registerSales,
   getSales,
   getSaleById,
   deleteSale,
+  updateSale,
 };

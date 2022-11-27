@@ -51,10 +51,22 @@ const deleteSale = async (id) => {
   // because of the "ON DELETE CASCADE" property in sql
 };
 
+// Update the products of a sale
+const updateSale = async (saleId, { productId, quantity }) => {
+  await connection.execute(
+    `UPDATE StoreManager.sales_products SET quantity = ? 
+    WHERE product_id = ?
+    AND  sale_id = ?`,
+    [quantity, productId, saleId],
+  );
+  return { saleId, productId, quantity };
+};
+
 module.exports = {
   registerSaleId,
   registerSaleProducts,
   getSales,
   getSaleById,
   deleteSale,
+  updateSale,
 };

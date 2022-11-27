@@ -191,9 +191,14 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-11-27T02:34:04.881Z",
-    "modified": "2022-11-27T20:25:44.485Z",
+    "modified": "2022-11-27T21:49:38.169Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 5\n  }\n]",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -233,9 +238,14 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-11-27T02:46:55.927Z",
-    "modified": "2022-11-27T04:19:18.320Z",
+    "modified": "2022-11-27T21:35:00.522Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 10\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 50\n  }\n]",
+      "form": []
+    },
     "tests": []
   },
   {
@@ -438,6 +448,101 @@
     "modified": "2022-11-27T20:42:14.625Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "6ee64a3e-c722-4e0d-93d1-cbc02790aa15",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/sales",
+    "url": "http://localhost:3000/sales",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2022-11-27T21:33:53.604Z",
+    "modified": "2022-11-27T21:33:53.969Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 10\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 50\n  }\n]",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "d7a8febe-3fc4-43c8-ac77-73582dd4603f",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/sales/1",
+    "url": "http://localhost:3000/sales/1",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2022-11-27T21:34:37.237Z",
+    "modified": "2022-11-27T21:52:09.038Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 5\n  }\n]",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "2138da3c-e25d-45d7-9322-ea525efef241",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/sales/10",
+    "url": "http://localhost:3000/sales/10",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-27T21:35:11.271Z",
+    "modified": "2022-11-27T21:35:11.532Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 10\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 50\n  }\n]",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "c625f215-1c7a-4af6-8f7c-70296c6c6dda",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/sales/999",
+    "url": "http://localhost:3000/sales/999",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2022-11-27T21:41:13.151Z",
+    "modified": "2022-11-27T21:41:13.249Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 999\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 500\n  }\n]",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "3f9d7261-5c1a-43fc-9160-cacb3e0028f6",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/sales/100",
+    "url": "http://localhost:3000/sales/100",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2022-11-27T21:41:31.616Z",
+    "modified": "2022-11-27T21:44:05.983Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 999\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 500\n  }\n]",
+      "form": []
+    },
     "tests": []
   }
 ]

@@ -24,4 +24,11 @@ routers.get('/:id', salesController.getSaleById);
 
 routers.delete('/:id', salesController.deleteSale);
 
+routers.put('/:id',
+  checkId,
+  checkQuantity,
+  checkQuantityValor,
+  checkIdIsRegistered,
+  salesController.updateSale);
+
 module.exports = routers;

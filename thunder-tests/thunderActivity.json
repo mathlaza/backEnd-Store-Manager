@@ -102,7 +102,7 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-11-23T16:59:39.931Z",
-    "modified": "2022-11-27T06:36:35.162Z",
+    "modified": "2022-11-27T06:53:02.823Z",
     "headers": [],
     "params": [],
     "body": {
@@ -135,7 +135,7 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-11-24T20:06:42.106Z",
-    "modified": "2022-11-24T21:36:40.043Z",
+    "modified": "2022-11-27T06:58:06.868Z",
     "headers": [],
     "params": [],
     "body": {
@@ -187,7 +187,7 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-11-25T02:51:19.685Z",
-    "modified": "2022-11-27T03:01:29.528Z",
+    "modified": "2022-11-27T06:57:18.894Z",
     "headers": [],
     "params": [],
     "body": {
@@ -329,11 +329,11 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3000/products/3",
-    "url": "http://localhost:3000/products/3",
+    "url": "http://localhost:3000/products/30",
     "method": "PUT",
     "sortNum": 0,
     "created": "2022-11-27T06:36:29.969Z",
-    "modified": "2022-11-27T06:36:30.266Z",
+    "modified": "2022-11-27T18:51:18.179Z",
     "headers": [],
     "params": [],
     "body": {

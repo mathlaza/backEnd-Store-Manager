@@ -7,7 +7,7 @@ const sinonChai = require('sinon-chai'); // Enables more verbs to assertions
 // To use more assertions, like "calledWith"
 chai.use(sinonChai);
 
-const { productsMock, registerMock } = require('../mock/productsMock');
+const { productsMock, registerMock, updateMock } = require('../mock/productsMock');
 const productsService = require('../../../src/services/products.service');
 const productsController = require('../../../src/controllers/products.controller');
 const httpStatus = require('../../../src/utils/httpStatus');
@@ -69,6 +69,34 @@ describe('Tests da camada Controllers dos produtos', () => {
 
     expect(res.status).calledWith(httpStatus.CREATED);
     expect(res.json).calledWith(registerMock);
+  });
+
+  it('Verifica se atualiza um produto', async () => {
+    sinon.stub(productsService, 'updateProduct')
+      .resolves({ type: null, message: '' });
+    const req = { body: { name: 'updatedProduct' }, params: { id: 1 } };
+    const res = {};
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    await productsController.updateProduct(req, res);
+
+    expect(res.status).calledWith(httpStatus.OK);
+    expect(res.json).calledWith(updateMock);
+  });
+
+  it('Verifica erro se id do produto a atualizar não existir', async () => {
+    sinon.stub(productsService, 'updateProduct')
+      .resolves({ type: httpStatus.NOT_FOUND, message: 'Product not found' });
+    const req = { params: { id: 1000 }, body: { name: "updatedProduct" } };
+    const res = {};
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    await productsController.updateProduct(req, res);
+
+    expect(res.status).calledWith(httpStatus.NOT_FOUND);
+    expect(res.json).calledWith({ message: 'Product not found' });
   });
 
   afterEach(sinon.restore);

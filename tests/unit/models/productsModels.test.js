@@ -1,7 +1,7 @@
 const { expect } = require('chai'); // Enables assertions
 const sinon = require('sinon'); // Simulates functions
 
-const { productsMock, registerMock } = require('../mock/productsMock');
+const { productsMock, registerMock, updateMock } = require('../mock/productsMock');
 const connection = require('../../../src/models/db/connection');
 const productsModel = require('../../../src/models/products.model');
 
@@ -25,6 +25,13 @@ describe('Tests da camada Model dos produtos', () => {
     sinon.stub(connection, 'execute').resolves([{ insertId: 999 }]);
     const result = await productsModel.registerProduct('ProductX');
     expect(result).to.deep.equal(registerMock);
+  });
+
+  it('Verifica se atualiza um produto', async () => {
+    sinon.stub(connection, 'execute').resolves(updateMock);
+    const { id, name } = updateMock;
+    const result = await productsModel.updateProduct(id, name);
+    expect(result).to.deep.equal(updateMock);
   });
 
   // Restores stub for each test

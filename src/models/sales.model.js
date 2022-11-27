@@ -42,9 +42,19 @@ const getSaleById = async (id) => {
   return camelize(sale);
 };
 
+// Delete a sale
+const deleteSale = async (id) => {
+  await connection.execute(
+    'DELETE FROM StoreManager.sales WHERE id = ?', [id],
+  );
+  // Don't need to delete sale_id on sales_products table either
+  // because of the "ON DELETE CASCADE" property in sql
+};
+
 module.exports = {
   registerSaleId,
   registerSaleProducts,
   getSales,
   getSaleById,
+  deleteSale,
 };

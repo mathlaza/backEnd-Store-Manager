@@ -26,7 +26,6 @@ const updateProduct = async (id, name) => {
 const deleteProduct = async (id) => {
   const { type, message } = await getProductsById(id);
   const result = await productsModel.deleteProduct(id);
-  console.log('service', result);
   if (!type) return { type: null, message: result }; // type === null on "getProductsById" => product exists!
   return { type, message };
 };

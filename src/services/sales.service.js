@@ -20,8 +20,17 @@ const getSaleById = async (id) => {
   return { type: httpStatus.NOT_FOUND, message: 'Sale not found' };
 };
 
+const deleteSale = async (id) => {
+  const { type } = await getSaleById(id);
+  const result = await salesModel.deleteSale(id);
+  console.log('service', id, result);
+  if (!type) return { type: null, message: result }; // type === null on "getSaleById" => sale exists!
+  return { type: httpStatus.NOT_FOUND, message: 'Sale not found' };
+};
+
 module.exports = {
   registerSales,
   getSales,
   getSaleById,
+  deleteSale,
 };

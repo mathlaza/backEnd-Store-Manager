@@ -12,8 +12,8 @@ const productsService = require('../../../src/services/products.service');
 const productsController = require('../../../src/controllers/products.controller');
 const httpStatus = require('../../../src/utils/httpStatus');
 
-describe('Tests da camada Controllers dos produtos', function () {
-  it('Verifica se todos os produtos são listados', async function () {
+describe('Tests da camada Controllers dos produtos', () => {
+  it('Verifica se todos os produtos são listados', async () => {
     const mock = { type: null, message: productsMock }
     // "resolves" to functions, "returns" to objects
     sinon.stub(productsService, 'getProducts').resolves(mock);
@@ -29,7 +29,7 @@ describe('Tests da camada Controllers dos produtos', function () {
     expect(res.json).to.have.been.calledWith(productsMock);
   });
 
-  it('Verifica se um produto buscado por id é listado', async function () {
+  it('Verifica se um produto buscado por id é listado', async () => {
     const mock = { type: null, message: productsMock[0] }
     sinon.stub(productsService, 'getProductsById').resolves(mock);
     const req = { params: { id: 1 } }; 
@@ -43,7 +43,7 @@ describe('Tests da camada Controllers dos produtos', function () {
     expect(res.json).to.have.been.calledWith(productsMock[0]);
   })
 
-  it('Verifica erro se id buscado não existir', async function () {
+  it('Verifica erro se id buscado não existir', async () => {
     sinon.stub(productsService, 'getProductsById')
       .resolves({ type: httpStatus.NOT_FOUND, message: 'Product not found' });
     const req = { params: { id: 999 } };
@@ -57,7 +57,7 @@ describe('Tests da camada Controllers dos produtos', function () {
     expect(res.json).calledWith({ message: 'Product not found' });
   });
 
-  it('Verifica se registra um produto', async function () {
+  it('Verifica se registra um produto', async () => {
     sinon.stub(productsService, 'registerProduct')
       .resolves({ type: null, message: registerMock });
     const req = { body: { name: 'ProductX' } };

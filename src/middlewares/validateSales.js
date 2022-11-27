@@ -4,9 +4,9 @@ const productsModel = require('../models/products.model');
 // Check if all itens of request contain "productId" field
 const checkId = (req, res, next) => {
   const sales = req.body;
-  const fieldExists = sales.some((sale) => sale.productId === undefined);
+  const noField = sales.some((sale) => sale.productId === undefined);
 
-  if (fieldExists) {
+  if (noField) {
     return res.status(httpStatus.BAD_REQUEST)
       .json({ message: '"productId" is required' });
   }
@@ -16,9 +16,9 @@ const checkId = (req, res, next) => {
 // Check if all itens of request contain "quantity" field
 const checkQuantity = (req, res, next) => {
   const sales = req.body;
-  const fieldExists = sales.some((sale) => sale.quantity === undefined);
+  const noField = sales.some((sale) => sale.quantity === undefined);
 
-  if (fieldExists) {
+  if (noField) {
     return res.status(httpStatus.BAD_REQUEST)
       .json({ message: '"quantity" is required' });
   }

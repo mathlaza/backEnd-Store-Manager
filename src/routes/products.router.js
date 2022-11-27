@@ -20,4 +20,6 @@ routers.put('/:id',
   checkNameLength,
   productsController.updateProduct);
 
+routers.delete('/:id', productsController.deleteProduct);
+
 module.exports = routers;

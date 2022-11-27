@@ -31,7 +31,7 @@ const updateProduct = async (req, res) => {
 const deleteProduct = async (req, res) => {
   const { id } = req.params;
   const { type, message } = await productsService.deleteProduct(id); // type === null => product doesn't exist!
-  if (!type) return res.status(httpStatus.NO_CONTENT).end(); // successfully deleted product
+  if (!type) return res.status(httpStatus.NO_CONTENT).json(); // successfully deleted product
   return res.status(type).json({ message });
 };
 

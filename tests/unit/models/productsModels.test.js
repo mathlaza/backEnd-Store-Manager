@@ -34,6 +34,12 @@ describe('Tests da camada Model dos produtos', () => {
     expect(result).to.deep.equal(updateMock);
   });
 
+  it('Verifica se deleta um produto', async () => {
+    sinon.stub(connection, 'execute').resolves([{ changedRows: 1 }]);
+    const result = await productsModel.deleteProduct(3);
+    expect(result).to.deep.equal(1);
+  });
+
   // Restores stub for each test
   afterEach(sinon.restore);
 });

@@ -99,5 +99,33 @@ describe('Tests da camada Controllers dos produtos', () => {
     expect(res.json).calledWith({ message: 'Product not found' });
   });
 
+  it('Verifica se deleta um produto', async () => {
+    sinon.stub(productsService, 'deleteProduct')
+      .resolves({ type: null, message: undefined });
+    const req = { params: { id: 3 } };
+    const res = {};
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    await productsController.deleteProduct(req, res);
+
+    expect(res.status).calledWith(httpStatus.NO_CONTENT);
+    expect(res.json).calledWith();
+  });
+
+  it('Verifica erro se id do produto a deletar não existir', async () => {
+    sinon.stub(productsService, 'deleteProduct')
+      .resolves({ type: httpStatus.NOT_FOUND, message: 'Product not found' });
+    const req = { params: { id: 1000 } };
+    const res = {};
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    await productsController.deleteProduct(req, res);
+
+    expect(res.status).calledWith(httpStatus.NOT_FOUND);
+    expect(res.json).calledWith({ message: 'Product not found' });
+  });
+
   afterEach(sinon.restore);
 });

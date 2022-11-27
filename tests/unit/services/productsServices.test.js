@@ -50,5 +50,19 @@ describe('Tests da camada Services dos produtos', () => {
     expect(result).to.deep.equal(response);
   });
 
+  it('Verifica se deleta um produto', async () => {
+    sinon.stub(productsModel, 'deleteProduct').resolves();
+    const result = await productsService.deleteProduct(3);
+    const response = { type: null, message: undefined };
+    expect(result).to.deep.equal(response);
+  });
+
+  it('Verifica erro se id do produto a deletar não existir', async () => {
+    sinon.stub(productsModel, 'getProductsById').resolves(null);
+    const result = await productsService.deleteProduct(1000);
+    const response = { type: httpStatus.NOT_FOUND, message: 'Product not found' };
+    expect(result).to.deep.equal(response);
+  });
+
   afterEach(sinon.restore);
 });

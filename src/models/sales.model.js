@@ -32,7 +32,7 @@ const getSales = async () => {
 
 // Show a sale by its id
 const getSaleById = async (id) => {
-  const [sale] = await connection.execute(
+  const [[sale]] = await connection.execute(
     `SELECT date, product_id, quantity FROM StoreManager.sales AS s
     INNER JOIN sales_products AS p 
     ON s.id = p.sale_id

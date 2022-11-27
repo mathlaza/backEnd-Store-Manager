@@ -16,8 +16,8 @@ const getSales = async () => {
 
 const getSaleById = async (id) => {
   const sale = await salesModel.getSaleById(id);
-  if (sale.length === 0) return { type: httpStatus.NOT_FOUND, message: 'Sale not found' };
-  return { type: null, message: sale };
+  if (sale) return { type: null, message: sale };
+  return { type: httpStatus.NOT_FOUND, message: 'Sale not found' };
 };
 
 module.exports = {

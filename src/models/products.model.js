@@ -32,10 +32,19 @@ const deleteProduct = async (id) => {
   return changedRows; // To check on tests if the product was deleted
 };
 
+const getProductsByName = async (query) => {
+  const nameBetween = `%${query}%`;
+  const [products] = await connection.execute(
+    'SELECT * FROM StoreManager.products WHERE name LIKE ?', [nameBetween],
+  );
+  return products;
+};
+
 module.exports = {
   getProducts,
   getProductsById,
   registerProduct,
   updateProduct,
   deleteProduct,
+  getProductsByName,
 };

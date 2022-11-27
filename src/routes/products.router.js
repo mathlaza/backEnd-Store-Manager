@@ -13,6 +13,8 @@ routers.post('/',
   checkNameLength,
   productsController.registerProduct);
 
+routers.get('/search', productsController.getProductsByName);
+
 routers.get('/:id', productsController.getProductsById);
 
 routers.put('/:id',

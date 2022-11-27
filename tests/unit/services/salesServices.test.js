@@ -50,5 +50,20 @@ describe('Tests da camada Services dos sales', () => {
     expect(result).to.deep.equal(response);
   });
 
+  it('Verifica se atualiza uma venda', async () => {
+    const [{ productId, quantity }] = getSaleByIdMock;
+    sinon.stub(salesModel, 'updateSale').resolves({ saleId: 999, productId: 888, quantity: 777 });
+    const result = await salesService.updateSale(1, regProductMock);
+    const response = { type: null, message: { saleId: 1, itemsUpdated: regProductMock } };
+    expect(result).to.deep.equal(response);
+  });
+
+  it('Verifica erro se id de venda a atualizar não existir', async () => {
+    sinon.stub(salesModel, 'getSaleById').resolves([]);
+    const result = await salesService.updateSale(999, regProductMock);
+    const response = { type: httpStatus.NOT_FOUND, message: 'Sale not found' };
+    expect(result).to.deep.equal(response);
+  });
+
   afterEach(sinon.restore);
 });

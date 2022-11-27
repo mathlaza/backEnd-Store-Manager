@@ -13,7 +13,7 @@ describe('Tests da camada Model dos sales', () => {
   });
 
   it('Verifica se registra um produto de uma venda', async () => {
-    sinon.stub(connection, 'execute').resolves([{ insertId: 999 }]);
+    sinon.stub(connection, 'execute').resolves([{ saleId: 999, productId: 888, quantity: 777 }]);
     const [{ productId, quantity }] = regProductMock;
     const result = await salesModel.registerSaleProducts(999, { productId, quantity });
     expect(result).to.deep.equal({ saleId: 999, productId, quantity });
@@ -35,6 +35,13 @@ describe('Tests da camada Model dos sales', () => {
     sinon.stub(connection, 'execute').resolves();
     const result = await salesModel.deleteSale(2);
     expect(result).to.deep.equal();
+  });
+
+  it('Verifica se atualiza uma venda', async () => {
+    sinon.stub(connection, 'execute').resolves({ saleId: 999, productId: 888, quantity: 777 });
+    const [{ productId, quantity }] = getSaleByIdMock;
+    const result = await salesModel.updateSale(999, { productId, quantity });
+    expect(result).to.deep.equal({ saleId: 999, productId, quantity });
   });
 
   afterEach(sinon.restore);

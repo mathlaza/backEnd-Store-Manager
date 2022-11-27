@@ -98,5 +98,33 @@ describe('Tests da camada Controllers dos sales', () => {
     expect(res.json).calledWith({ message: 'Sale not found' });
   });
 
+  it('Atualiza uma venda corretamente', async () => {
+    sinon.stub(salesService, 'updateSale')
+      .resolves({ type: null, message: { saleId: 1, itemsUpdated: regProductMock } });
+    const req = { params: { id: 1 }, body: { regProductMock } };
+    const res = {};
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    await salesController.updateSale(req, res);
+
+    expect(res.status).calledWith(httpStatus.OK);
+    expect(res.json).calledWith({ saleId: 1, itemsUpdated: regProductMock });
+  });
+
+  it('Verifica erro se id de venda a atualizar não existir', async () => {
+    sinon.stub(salesService, 'updateSale')
+      .resolves({ type: httpStatus.NOT_FOUND, message: 'Sale not found' });
+    const req = { params: { id: 999 } };
+    const res = {};
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns(res);
+
+    await salesController.updateSale(req, res);
+
+    expect(res.status).calledWith(httpStatus.NOT_FOUND);
+    expect(res.json).calledWith({ message: 'Sale not found' });
+  });
+
   afterEach(sinon.restore);
 });

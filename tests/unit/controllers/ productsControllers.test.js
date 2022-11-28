@@ -127,5 +127,19 @@ describe('Tests da camada Controllers dos produtos', () => {
     expect(res.json).calledWith({ message: 'Product not found' });
   });
 
+  it('Verifica se produtos procurados pelo nome são listados', async () => {
+    sinon.stub(productsService, 'getProductsByName')
+      .resolves({ type: null, message: productsMock[2] });
+    const req = { query: { q: "Capitão" } };
+    const res = {};
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    await productsController.getProductsByName(req, res);
+
+    expect(res.status).calledWith(httpStatus.OK);
+    expect(res.json).calledWith(productsMock[2]);
+  });
+
   afterEach(sinon.restore);
 });

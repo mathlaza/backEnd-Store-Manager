@@ -64,5 +64,19 @@ describe('Tests da camada Services dos produtos', () => {
     expect(result).to.deep.equal(response);
   });
 
+  it('Verifica se produtos procurados pelo nome são listados', async () => {
+    sinon.stub(productsModel, 'getProductsByName').resolves(productsMock[2]);
+    const result = await productsService.getProductsByName('Capitão');
+    const response = { type: null, message: productsMock[2] }
+    expect(result).to.deep.equal(response);
+  });
+
+  it('Verifica se todos produtos são listados caso não haja nome na query', async () => {
+    sinon.stub(productsModel, 'getProductsByName').resolves(productsMock)
+    const result = await productsService.getProductsByName('');
+    expect(result.type).to.deep.equal(null);
+    expect(result.message).to.deep.equal(productsMock);
+  });
+
   afterEach(sinon.restore);
 });

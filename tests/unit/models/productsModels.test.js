@@ -40,6 +40,12 @@ describe('Tests da camada Model dos produtos', () => {
     expect(result).to.deep.equal(1);
   });
 
+  it('Verifica se produtos procurados pelo nome são listados', async () => {
+    sinon.stub(connection, 'execute').resolves([productsMock[2]]);
+    const result = await productsModel.getProductsByName('Capitão');
+    expect(result).to.deep.equal(productsMock[2]);
+  });
+
   // Restores stub for each test
   afterEach(sinon.restore);
 });

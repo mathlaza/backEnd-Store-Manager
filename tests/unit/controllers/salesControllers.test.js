@@ -12,8 +12,8 @@ const salesService = require('../../../src/services/sales.service');
 const salesController = require('../../../src/controllers/sales.controller');
 const httpStatus = require('../../../src/utils/httpStatus');
 
-describe('Tests da camada Controllers dos sales', () => {
-  it('Verifica se registra um produto de uma venda', async () => {
+describe('Sale controllers layer tests', () => {
+  it('Checks if registers a product from a sale', async () => {
     sinon.stub(salesService, 'registerSales')
       .resolves({ type: null, message: { id: 999, itemsSold: regProductMock } });
     const req = { body: regProductMock };
@@ -27,7 +27,7 @@ describe('Tests da camada Controllers dos sales', () => {
     expect(res.json).to.have.been.calledWith({ id: 999, itemsSold: regProductMock });
   });
 
-  it('Verifica se todas as vendas são listadas', async () => {
+  it('Checks if all sales are listed', async () => {
     sinon.stub(salesService, 'getSales')
       .resolves({ type: null, message: getSalesMock });
     const req = {};
@@ -42,7 +42,7 @@ describe('Tests da camada Controllers dos sales', () => {
   });
 
 
-  it('Verifica se uma venda buscada por id é listada', async () => {
+  it('Checks if a sale searched by id is listed', async () => {
     sinon.stub(salesService, 'getSaleById')
       .resolves({ type: null, message: getSaleByIdMock });
     const req = { params: { id: 1 } };
@@ -56,7 +56,7 @@ describe('Tests da camada Controllers dos sales', () => {
     expect(res.json).to.have.been.calledWith(getSaleByIdMock);
   });
 
-  it('Verifica erro se id buscado não existir', async () => {
+  it('Checks error if searched id does not exist', async () => {
     sinon.stub(salesService, 'getSaleById')
       .resolves({ type: httpStatus.NOT_FOUND, message: 'Sale not found' });
     const req = { params: 999 };
@@ -70,7 +70,7 @@ describe('Tests da camada Controllers dos sales', () => {
     expect(res.json).to.have.been.calledWith({ message: 'Sale not found' });
   });
 
-  it('Verifica se deleta uma venda', async () => {
+  it('Checks if can delete a sale', async () => {
     sinon.stub(salesService, 'deleteSale')
       .resolves({ type: null, message: undefined });
     const req = { params: { id: 2 } };
@@ -84,7 +84,7 @@ describe('Tests da camada Controllers dos sales', () => {
     expect(res.json).calledWith();
   });
 
-  it('Verifica erro se id da venda a deletar não existir', async () => {
+  it('Checks error if sales id to be deleted does not exist', async () => {
     sinon.stub(salesService, 'deleteSale')
       .resolves({ type: httpStatus.NOT_FOUND, message: 'Sale not found' });
     const req = { params: { id: 1000 } };
@@ -98,7 +98,7 @@ describe('Tests da camada Controllers dos sales', () => {
     expect(res.json).calledWith({ message: 'Sale not found' });
   });
 
-  it('Atualiza uma venda corretamente', async () => {
+  it('Checks if a sale is updated', async () => {
     sinon.stub(salesService, 'updateSale')
       .resolves({ type: null, message: { saleId: 1, itemsUpdated: regProductMock } });
     const req = { params: { id: 1 }, body: { regProductMock } };
@@ -112,7 +112,7 @@ describe('Tests da camada Controllers dos sales', () => {
     expect(res.json).calledWith({ saleId: 1, itemsUpdated: regProductMock });
   });
 
-  it('Verifica erro se id de venda a atualizar não existir', async () => {
+  it('Checks error if sales id to update does not exist', async () => {
     sinon.stub(salesService, 'updateSale')
       .resolves({ type: httpStatus.NOT_FOUND, message: 'Sale not found' });
     const req = { params: { id: 999 } };

@@ -111,7 +111,7 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-11-23T17:35:27.628Z",
-    "modified": "2022-11-23T17:36:19.255Z",
+    "modified": "2022-12-30T12:19:21.176Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -154,16 +154,16 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3000/products",
-    "url": "http://localhost:3000/products",
-    "method": "POST",
+    "url": "http://localhost:3000/",
+    "method": "GET",
     "sortNum": 0,
     "created": "2022-11-24T20:09:00.673Z",
-    "modified": "2022-11-24T21:06:36.065Z",
+    "modified": "2022-12-30T12:39:54.941Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"xabl\"\n}",
+      "raw": "{\n  \"name\": \"xablau\"\n}",
       "form": []
     },
     "tests": []
@@ -191,14 +191,9 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-11-27T02:34:04.881Z",
-    "modified": "2022-11-27T21:49:38.169Z",
+    "modified": "2022-12-30T13:23:22.829Z",
     "headers": [],
     "params": [],
-    "body": {
-      "type": "json",
-      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 5\n  }\n]",
-      "form": []
-    },
     "tests": []
   },
   {
@@ -238,14 +233,9 @@
     "method": "GET",
     "sortNum": 0,
     "created": "2022-11-27T02:46:55.927Z",
-    "modified": "2022-11-27T21:35:00.522Z",
+    "modified": "2022-12-30T13:25:09.199Z",
     "headers": [],
     "params": [],
-    "body": {
-      "type": "json",
-      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 10\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 50\n  }\n]",
-      "form": []
-    },
     "tests": []
   },
   {
@@ -550,11 +540,11 @@
     "colId": "history",
     "containerId": "",
     "name": " http://localhost:PORT/products/search?q=Martelo",
-    "url": " http://localhost:PORT/products/search?q=Martelo",
+    "url": "http://localhost:PORT/products/search?q=Martelo",
     "method": "GET",
     "sortNum": 0,
     "created": "2022-11-27T23:18:44.066Z",
-    "modified": "2022-11-27T23:18:44.329Z",
+    "modified": "2022-12-30T13:26:11.075Z",
     "headers": [],
     "params": [
       {
@@ -570,11 +560,11 @@
     "colId": "history",
     "containerId": "",
     "name": " http://localhost:3000/products/search?q=Martelo",
-    "url": " http://localhost:3000/products/search?q=Martelo",
+    "url": "http://localhost:3000/products/search?q=Martelo",
     "method": "GET",
     "sortNum": 0,
     "created": "2022-11-27T23:18:54.698Z",
-    "modified": "2022-11-27T23:20:21.419Z",
+    "modified": "2022-12-30T13:28:31.940Z",
     "headers": [],
     "params": [
       {
@@ -594,7 +584,7 @@
     "method": "PATCH",
     "sortNum": 0,
     "created": "2022-11-27T23:21:13.126Z",
-    "modified": "2022-11-27T23:21:13.129Z",
+    "modified": "2022-12-30T13:27:10.736Z",
     "headers": [],
     "params": [
       {
@@ -610,11 +600,11 @@
     "colId": "history",
     "containerId": "",
     "name": " http://localhost:3000/products",
-    "url": " http://localhost:3000/products",
+    "url": " http://localhost:3000",
     "method": "GET",
     "sortNum": 0,
     "created": "2022-11-27T23:21:20.235Z",
-    "modified": "2022-11-27T23:21:30.837Z",
+    "modified": "2022-12-30T12:18:10.390Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -717,6 +707,48 @@
         "isPath": false
       }
     ],
+    "tests": []
+  },
+  {
+    "_id": "df9c8bbe-e159-43b6-a20e-baa7c3ffc950",
+    "colId": "history",
+    "containerId": "",
+    "name": "https://localhost/3000/",
+    "url": "https://localhost/3000/",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-12-30T12:12:39.777Z",
+    "modified": "2022-12-30T12:12:39.777Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "bdb669e0-5436-4f9b-a0c1-e8fd48c75ba1",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost/3000/",
+    "url": "http://localhost/3000/",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-12-30T12:13:02.116Z",
+    "modified": "2022-12-30T12:13:02.116Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "81be426a-ac30-45f8-a058-e2d6ee73026d",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/",
+    "url": "http://localhost:3000/",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-12-30T12:13:25.618Z",
+    "modified": "2022-12-30T12:13:25.618Z",
+    "headers": [],
+    "params": [],
     "tests": []
   }
 ]

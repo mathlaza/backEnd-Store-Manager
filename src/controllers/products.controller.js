@@ -7,9 +7,9 @@ const getProducts = async (_req, res) => {
   return res.status(status.OK).json(message);
 };
 
-const getProductsById = async (req, res) => {
+const getProductById = async (req, res) => {
   const { id } = req.params;
-  const { type, message } = await productsService.getProductsById(id);
+  const { type, message } = await productsService.getProductById(id);
   if (!type) return res.status(status.OK).json(message);
   return res.status(status.NOT_FOUND).json({ message });
 };
@@ -43,7 +43,7 @@ const getProductsByName = async (req, res) => {
 
 module.exports = {
   getProducts,
-  getProductsById,
+  getProductById,
   registerProduct,
   updateProduct,
   deleteProduct,

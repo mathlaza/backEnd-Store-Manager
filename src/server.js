@@ -1,8 +1,8 @@
 const app = require('./app');
 require('dotenv').config();
 
-// não altere esse arquivo, essa estrutura é necessária para à avaliação do projeto
+// do not change this file, this structure is necessary for project evaluation
 
 app.listen(process.env.PORT, () => {
-  console.log(`Escutando na porta ${process.env.PORT}`);
+  console.log(`Listening at port ${process.env.PORT}`);
 });

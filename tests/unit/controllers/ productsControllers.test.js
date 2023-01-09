@@ -12,8 +12,8 @@ const productsService = require('../../../src/services/products.service');
 const productsController = require('../../../src/controllers/products.controller');
 const httpStatus = require('../../../src/utils/httpStatus');
 
-describe('Tests da camada Controllers dos produtos', () => {
-  it('Verifica se todos os produtos são listados', async () => {
+describe('Product controllers layer tests', () => {
+  it('Checks if all products are listed', async () => {
     const mock = { type: null, message: productsMock }
     // "resolves" to functions, "returns" to objects
     sinon.stub(productsService, 'getProducts').resolves(mock);
@@ -29,35 +29,35 @@ describe('Tests da camada Controllers dos produtos', () => {
     expect(res.json).to.have.been.calledWith(productsMock);
   });
 
-  it('Verifica se um produto buscado por id é listado', async () => {
+  it('Checks if a product searched by id is listed', async () => {
     const mock = { type: null, message: productsMock[0] }
-    sinon.stub(productsService, 'getProductsById').resolves(mock);
+    sinon.stub(productsService, 'getProductById').resolves(mock);
     const req = { params: { id: 1 } }; 
     const res = {};
     res.status = sinon.stub().returns(res);
     res.json = sinon.stub().returns();
 
-    await productsController.getProductsById(req, res);
+    await productsController.getProductById(req, res);
 
     expect(res.status).to.have.been.calledWith(httpStatus.OK);
     expect(res.json).to.have.been.calledWith(productsMock[0]);
   })
 
-  it('Verifica erro se id buscado não existir', async () => {
-    sinon.stub(productsService, 'getProductsById')
+  it('Checks error if searched id does not exist', async () => {
+    sinon.stub(productsService, 'getProductById')
       .resolves({ type: httpStatus.NOT_FOUND, message: 'Product not found' });
     const req = { params: { id: 999 } };
     const res = {};
     res.status = sinon.stub().returns(res);
     res.json = sinon.stub().returns();
 
-    await productsController.getProductsById(req, res);
+    await productsController.getProductById(req, res);
 
     expect(res.status).calledWith(httpStatus.NOT_FOUND);
     expect(res.json).calledWith({ message: 'Product not found' });
   });
 
-  it('Verifica se registra um produto', async () => {
+  it('Checks if a product is registered', async () => {
     sinon.stub(productsService, 'registerProduct')
       .resolves({ type: null, message: registerMock });
     const req = { body: { name: 'ProductX' } };
@@ -71,7 +71,7 @@ describe('Tests da camada Controllers dos produtos', () => {
     expect(res.json).calledWith(registerMock);
   });
 
-  it('Verifica se atualiza um produto', async () => {
+  it('Checks if a product is updated', async () => {
     sinon.stub(productsService, 'updateProduct')
       .resolves({ type: null, message: '' });
     const req = { body: { name: 'updatedProduct' }, params: { id: 1 } };
@@ -85,7 +85,7 @@ describe('Tests da camada Controllers dos produtos', () => {
     expect(res.json).calledWith(updateMock);
   });
 
-  it('Verifica erro se id do produto a atualizar não existir', async () => {
+  it('Checks error if product id to update does not exist', async () => {
     sinon.stub(productsService, 'updateProduct')
       .resolves({ type: httpStatus.NOT_FOUND, message: 'Product not found' });
     const req = { params: { id: 1000 }, body: { name: "updatedProduct" } };
@@ -99,7 +99,7 @@ describe('Tests da camada Controllers dos produtos', () => {
     expect(res.json).calledWith({ message: 'Product not found' });
   });
 
-  it('Verifica se deleta um produto', async () => {
+  it('Checks if can delete a product', async () => {
     sinon.stub(productsService, 'deleteProduct')
       .resolves({ type: null, message: undefined });
     const req = { params: { id: 3 } };
@@ -113,7 +113,7 @@ describe('Tests da camada Controllers dos produtos', () => {
     expect(res.json).calledWith();
   });
 
-  it('Verifica erro se id do produto a deletar não existir', async () => {
+  it('Checks error if id of the product to be deleted does not exist', async () => {
     sinon.stub(productsService, 'deleteProduct')
       .resolves({ type: httpStatus.NOT_FOUND, message: 'Product not found' });
     const req = { params: { id: 1000 } };
@@ -127,7 +127,7 @@ describe('Tests da camada Controllers dos produtos', () => {
     expect(res.json).calledWith({ message: 'Product not found' });
   });
 
-  it('Verifica se produtos procurados pelo nome são listados', async () => {
+  it('Checks if products searched by name are listed', async () => {
     sinon.stub(productsService, 'getProductsByName')
       .resolves({ type: null, message: productsMock[2] });
     const req = { query: { q: "Capitão" } };

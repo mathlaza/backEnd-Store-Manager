@@ -15,7 +15,7 @@ routers.post('/',
 
 routers.get('/search', productsController.getProductsByName);
 
-routers.get('/:id', productsController.getProductsById);
+routers.get('/:id', productsController.getProductById);
 
 routers.put('/:id',
   checkNameExists,
